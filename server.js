@@ -15,6 +15,8 @@ var agenda = require('agenda')({ db: { address: 'localhost:27017/test' } });
 var sugar = require('sugar');
 var nodemailer = require('nodemailer');
 
+var compress = require('compression')
+
 var async = require('async');
 var request = require('request');
 var xml2js = require('xml2js');
@@ -139,6 +141,7 @@ agenda.on('complete', function(job) {
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
+app.use(compress())
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -146,7 +149,7 @@ app.use(cookieParser());
 app.use(session({ secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 }));
 app.use(function(req, res, next) {
     if (req.user) {
         res.cookie('user', JSON.stringify(req.user));
