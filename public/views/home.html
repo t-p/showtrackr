@@ -1,19 +1,34 @@
-<div class="jumbotron">
-  <div class="container">
-    <ul class="alphabet">
-      <li ng-repeat="char in alphabet">
-        <span ng-click="filterByAlphabet(char)">{{char}}</span>
-      </li>
-    </ul>
-    <ul class="genres">
-      <li ng-repeat="genre in genres">
-        <span ng-click="filterByGenre(genre)">{{genre}}</span>
-      </li>
-    </ul>
-  </div>
-</div>
-
 <div class="container">
+
+  <div class="panel-group" ng-model="panels.activePanel" bs-collapse>
+    <div class="panel panel-default" ng-repeat="panel in panels">
+
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a bs-collapse-toggle>
+            {{ panel.title }}
+          </a>
+        </h4>
+      </div>
+
+      <div class="panel-collapse" bs-collapse-target>
+        <div class="panel-body">
+          <ul class="alphabet">
+            <li ng-repeat="char in alphabet">
+              <span ng-click="filterByAlphabet(char)">{{char}}</span>
+            </li>
+          </ul>
+          <ul class="genres">
+            <li ng-repeat="genre in genres">
+              <span ng-click="filterByGenre(genre)">{{genre}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div class="panel panel-default">
     <div class="panel-heading">
       {{headingTitle}}

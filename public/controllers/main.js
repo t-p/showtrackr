@@ -13,6 +13,13 @@ angular.module('MyApp')
 
         $scope.headingTitle = 'Top 12 Shows';
 
+        $scope.panels = [
+          {
+            "title": "Filter Shows",
+          }
+        ];
+        $scope.panels.activePanel = -1;
+
         $scope.shows = Show.query();
 
         $scope.filterByGenre = function(genre) {

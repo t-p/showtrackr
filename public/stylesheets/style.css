@@ -3339,7 +3339,7 @@ a.badge:hover, a.badge:focus {
   padding: 16px;
   margin-bottom: 16px;
   color: inherit;
-  background-color: #f4f6f8; }
+  background-color: #eeeeee; }
   .jumbotron h1, .jumbotron .h1 {
     color: inherit; }
   .jumbotron p {
@@ -3347,7 +3347,7 @@ a.badge:hover, a.badge:focus {
     font-size: 21px;
     font-weight: 200; }
   .jumbotron > hr {
-    border-top-color: #d5dde4; }
+    border-top-color: #d5d5d5; }
   .container .jumbotron {
     border-radius: 6px; }
   .jumbotron .container {
