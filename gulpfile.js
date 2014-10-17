@@ -8,6 +8,7 @@ var templateCache = require('gulp-angular-templatecache');
 
 gulp.task('sass', function() {
     gulp.src('public/stylesheets/style.scss')
+        // prevents gulp from breaking if syntax error
         .pipe(plumber())
         .pipe(sass())
         .pipe(gulp.dest('public/stylesheets'));
