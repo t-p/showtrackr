@@ -15,10 +15,10 @@ angular.module('MyApp')
 
         $scope.panels = [
           {
-            "title": "Filter Shows",
+            "title": "toggle filter"
           }
         ];
-        $scope.panels.activePanel = -1;
+        $scope.panels.activePanel = 0;
 
         $scope.shows = Show.query();
 
