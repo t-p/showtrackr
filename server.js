@@ -11,8 +11,11 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var agenda = require('agenda')({ db: { address: 'localhost:27017/test' } });
-//var agenda = require('agenda')({ db: { address: process.env.MONGOURI } });
+// this env variables come from docker via --link option
+var db_address = process.env.MONGODB_PORT_27017_TCP_ADDR;
+var db_port = process.env.MONGODB_PORT_27017_TCP_PORT;
+
+var agenda = require('agenda')({ db: { address: 'mongodb://' + db_address + ':' + db_port } });
 
 var sugar = require('sugar');
 var nodemailer = require('nodemailer');
@@ -75,8 +78,7 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 var User = mongoose.model('User', userSchema);
 var Show = mongoose.model('Show', showSchema);
 
-mongoose.connect('localhost');
-//mongoose.connect(process.env.MONGOURI);
+mongoose.connect('mongodb://' + db_address + ':' + db_port + '/test');
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
