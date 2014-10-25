@@ -2,7 +2,7 @@
 
 This project is based on <https://github.com/sahat/tvshow-tracker>.
 
-### Deploy this app using [docker](https://www.docker.com/)
+### Deploy this app with [docker](https://www.docker.com/)
 
 * clone [my dockerfiles](https://github.com/t-p/dockerfiles.git) and build a mongodb container
 
