@@ -11,7 +11,7 @@ var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-// this env variables come from docker via --link option
+// env variables come from docker via --link option
 var db_address = process.env.MONGODB_PORT_27017_TCP_ADDR;
 var db_port = process.env.MONGODB_PORT_27017_TCP_PORT;
 

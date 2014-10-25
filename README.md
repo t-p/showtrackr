@@ -35,7 +35,7 @@ $ docker run --name nodejs -d -p 80:3000 --link mongodb:mongodb your_id/nodejs
 * the alias of the link option (--link name:alias) form the MONGODB_PORT_27017_TCP_ADDR and MONGODB_PORT_27017_TCP_PORT env variables
 
 ```js
-// this env variables come from docker via --link option
+// env variables come from docker via --link option
 var db_address = process.env.MONGODB_PORT_27017_TCP_ADDR;
 var db_port = process.env.MONGODB_PORT_27017_TCP_PORT;
 ```
@@ -50,3 +50,9 @@ $ docker run --rm --name nodejs --link mongodb:mongodb your_id/nodejs env
 ```sh
 $ docker logs mongodb
 ```
+
+### ToDo
+
+- [x] deploy with docker
+- [ ] write tests using karma/jasmine
+- [ ] switch to ChouchDB
