@@ -18,7 +18,7 @@ angular.module('MyApp')
             "title": "toggle filter"
           }
         ];
-        $scope.panels.activePanel = 0;
+        $scope.panels.activePanel = -1;
 
         $scope.shows = Show.query();
 
