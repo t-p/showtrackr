@@ -51,8 +51,14 @@ $ docker run --rm --name nodejs --link mongodb:mongodb your_id/nodejs env
 $ docker logs mongodb
 ```
 
+* if you change your iptables setup check your nat tables to see if your docker rules are still intact
+
+```sh
+$ iptables -t nat -L -n
+```
+
 ### ToDo
 
 - [x] deploy with docker
-- [ ] write tests using karma/jasmine
+- [x] write tests using karma/jasmine
 - [ ] switch to ChouchDB
