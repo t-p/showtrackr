@@ -32,6 +32,8 @@ $ docker run --name nodejs -d -p 80:3000 --link mongodb:mongodb your_id/nodejs
 
 ### Troubleshooting
 
+* email sending via SendGrid is not implemented yet
+
 * the alias of the link option (--link name:alias) form the MONGODB_PORT_27017_TCP_ADDR and MONGODB_PORT_27017_TCP_PORT env variables
 
 ```js
