@@ -61,4 +61,5 @@ $ iptables -t nat -L -n
 
 - [x] deploy with docker
 - [x] write tests using karma/jasmine
+- [ ] get email via SendGrid up and runnung
 - [ ] switch to ChouchDB
