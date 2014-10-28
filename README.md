@@ -24,10 +24,10 @@ $ cd path/to/showtrackr
 $ docker build --tag your_id/nodejs .
 ```
 
-* run a nodejs instance and link it to mongodb
+* run a nodejs instance and link it to mongodb, you have to set several env variables
 
 ```sh
-$ docker run --name nodejs -d -p 80:3000 --link mongodb:mongodb your_id/nodejs
+$ docker run --name nodejs -d -p 80:3000  -e PORT=$PORT -e TVDB=$TVDB -e MAIL_USER=$MAIL_USER -e MAIL_PASSWORD=$MAIL_PASSWORD -e SEND_FROM=$SEND_FROM --link mongodb:mongodb your_id/nodejs
 ```
 
 ### Troubleshooting

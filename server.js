@@ -285,11 +285,11 @@ agenda.define('send email alert', function(job, done) {
 
     var smtpTransport = nodemailer.createTransport('SMTP', {
       service: 'SendGrid',
-      auth: { user: 'hslogin', pass: 'hspassword00' }
+      auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PASSWORD }
     });
 
     var mailOptions = {
-      from: process.env.SEND_FROM,
+      from: 'ShowTrackr <' + process.env.SEND_FROM + '>',
       to: emails.join(','),
       subject: show.name + ' is starting soon!',
       text: show.name + ' starts in less than 2 hours on ' + show.network + '.\n\n' +
