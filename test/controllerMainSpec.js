@@ -3,12 +3,21 @@ describe('Controller: MainCtrl', function() {
 
     var ctrl, scope;
 
+    beforeEach(module(function($provide) {
+        mockShow = {
+            query: function() {
+                return [{_id: 111, genre: ['Drama']},
+                        {_id: 222, genre: ['Crime']}];
+            }
+        };
+        $provide.value('Show', mockShow);
+    }));
+
     beforeEach(inject(function($controller, $rootScope) {
         scope = $rootScope.$new();
         ctrl = $controller('MainCtrl', {
             $scope: scope
         });
-
     }));
 
     it('should have a Heading Title', function() {
@@ -24,6 +33,7 @@ describe('Controller: MainCtrl', function() {
         expect(scope.panels).toBeDefined();
     });
     it('should have a Shows Array', function() {
+        console.log(scope.filterByGenre('Drama'))
         expect(scope.shows).toBeDefined();
     });
 });
